@@ -26,7 +26,12 @@ jQuery(function($) {
         return false;
     });
 
-
+    $(document).ready(function() {
+        $('.select-dropdown').select2({
+            closeOnSelect: false
+        });
+        
+    });
 
     /* Puch Menu
     ============================================== */
@@ -48,7 +53,6 @@ jQuery(function($) {
         return false;
     });
 
-
     /* Push DropDowns 
     ============================================== */
     var side_drop = $(".push_nav .dropdown");
@@ -58,11 +62,6 @@ jQuery(function($) {
     side_drop.on("hide.bs.dropdown", function(e) {
         $(this).find(".dropdown-menu").first().stop(true, true).slideUp();
     });
-
-    $('.selectpicker').selectpicker({
-        size: 4
-    });
-
 
     /* Skills Bar
     ============================================== */
@@ -79,7 +78,6 @@ jQuery(function($) {
         });
     });
 
-
     /* Rang slider
     ============================================== */
     $(".selectbox").selectbox();
@@ -93,7 +91,6 @@ jQuery(function($) {
         }
     });
 
-
     /* Fancybox
     ============================================== */
     $(".fancybox").fancybox({
@@ -102,7 +99,6 @@ jQuery(function($) {
         closeEffect: 'fade',
         closeClick: true,
     });
-
 
     /* Check Box
     ============================================== */
@@ -124,8 +120,6 @@ jQuery(function($) {
         $(this).toggleClass('checkedBox');
     });
 
-
-
     /* Team popup
     ============================================== */
     $('a[href=".team"]').on("click", function(event) {
@@ -139,7 +133,6 @@ jQuery(function($) {
         }
     });
 
-
     /* Equalise columns
     ============================================== */
     $(".item").each(function() {
@@ -152,7 +145,6 @@ jQuery(function($) {
         $(".col-md-6", this).height(highestBox);
 
     });
-
 
     /* Toggle button for more options
     ============================================== */
@@ -168,7 +160,6 @@ jQuery(function($) {
         }
     });
 
-
     /* Vertical center
      ============================================== */
     var verticalCenterHeight = function() {
@@ -179,7 +170,6 @@ jQuery(function($) {
     }
     window.onload = verticalCenterHeight;
     window.onresize = verticalCenterHeight;
-
 
     /* Left Menu
     ============================================== */
@@ -249,27 +239,40 @@ jQuery(function($) {
             "<i class='fa fa-angle-right'></i>"
         ],
     });
-    var owl = $("#banner_eig_slider");
-    owl.owlCarousel({
-        autoPlay: 3000,
-        navigation: false,
-        singleItem: true,
-        pagination: false,
-        transitionStyle: "fade"
-    });
-    $("#property-2-slider, #nav_slider").owlCarousel({
-        autoPlay: 3000,
-        items: 3,
-        pagination: false,
-        navigation: true,
-        navigationText: [
-            "<i class='fa fa-angle-left'></i>",
-            "<i class='fa fa-angle-right'></i>"
-        ],
-        itemsDesktopSmall: [1024, 2],
-        itemsTablet: [768, 2],
-        itemsMobile: [479, 1],
-    });
+    $('#banner_eig_slider').owlCarousel({
+        autoplay:true,
+        loop:true,
+        margin:30,
+        animateOut: 'fadeOut',
+        nav:false,
+        dots: false,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1
+            },
+        }
+    })
+    $('#property-2-slider, #nav_slider').owlCarousel({
+        autoplay:true,
+        loop:true,
+        margin:30,
+        nav:true,
+        dots: false,
+        navText: ['<span class="fas fa-chevron-left"></span>','<span class="fas fa-chevron-right"></span>'],
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            1024:{
+                items:3
+            },
+        }
+    })
     $('#main-slider.carousel').carousel({
         interval: 8000,
         singleItem: true,
@@ -326,7 +329,6 @@ jQuery(function($) {
             el.find(".owl-item").eq(0).addClass("synced");
         }
     });
-
     function syncPosition(el) {
         var current = this.currentItem;
         $("#property-d-1-2")
@@ -368,46 +370,100 @@ jQuery(function($) {
             sync2.trigger("owl.goTo", num - 1)
         }
     }
-    $("#property-1-slider, #listing_slider").owlCarousel({
-        autoPlay: false,
-        items: 2,
-        pagination: false,
-        navigation: true,
-        navigationText: [
-            "<i class='fa fa-angle-left'></i>",
-            "<i class='fa fa-angle-right'></i>"
-        ],
-        itemsMobile: [480, 1],
-    });
+    $('#listing_slider').owlCarousel({
+        autoplay:true,
+        loop:true,
+        margin:30,
+        nav:true,
+        dots: false,
+        navText: ['<span class="fas fa-chevron-left"></span>','<span class="fas fa-chevron-right"></span>'],
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            992:{
+                items:2
+            },
+        }
+    })
     $("#our-agent-slider").owlCarousel({
-        autoPlay: 3000,
-        items: 3,
-        pagination: true,
-        navigation: false,
-        itemsDesktop: [1199, 3],
-        itemsDesktopSmall: [979, 2],
-        itemsTablet: [768, 2],
-        itemsMobile: [480, 1],
+        autoplay:true,
+        loop:true,
+        margin:30,
+        nav:false,
+        dots: true,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                 items:1
+             },
+             768:{
+                 items:2
+             },
+             992:{
+                items:3
+            }
+        } 
     });
     $("#our-partner-slider").owlCarousel({
-        autoPlay: 3000,
-        items: 5,
-        navigation: false,
-        pagination: false,
-        itemsDesktop: [1199, 3],
-        itemsDesktopSmall: [979, 3]
+        autoplay:true,
+        loop:true,
+        margin:30,
+        nav:false,
+        dots: true,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                 items:1
+             },
+             400:{
+                 items:2
+             },
+             767:{
+                 items:3
+             },
+             992:{
+                 items:4
+             },
+             1199:{
+                 items:5
+             },
+        } 
     });
-    $("#about_slider").owlCarousel({
-        autoPlay: true, //Set AutoPlay to 3 seconds
-        singleItem: true,
-        navigation: false,
-        pagination: true,
-        itemsDesktop: [1199, 1],
-        itemsDesktopSmall: [320, 1]
+    $("#our-blog-slider").owlCarousel({
+        autoplay:true,
+        loop:true,
+        margin:30,
+        nav:false,
+        dots: true,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                 items:1
+             },
+             992:{
+                 items:2
+             },
+        } 
+    });
+    $("#customer-review").owlCarousel({
+        autoplay:true,
+        loop:true,
+        items:1,
+        margin:0,
+        nav:false,
+        dots: true,
+    });
+    $(".about_single").owlCarousel({
+        autoplay:true,
+        loop:true,
+        items:1,
+        margin:0,
+        nav:false,
+        dots: true,
     });
     
-
-
     /* Revolution
     ============================================== */
     var revapi = jQuery("#rev_slider_3").revolution({
@@ -460,7 +516,6 @@ jQuery(function($) {
         gridwidth: 1170,
         gridheight: 700
     });
-
     function revolutionSliderActiver() {
         if ($('.rev_slider_wrapper #slider1').length) {
             $("#slider1").revolution({
@@ -488,7 +543,6 @@ jQuery(function($) {
             });
         };
     }
-
 
     /* Cubeportfolio
     ============================================== */
@@ -554,8 +608,6 @@ jQuery(function($) {
 
     });
 
-
-
     /* Fun Fact
     ============================================== */
     $(".number-counters").appear(function() {
@@ -570,30 +622,56 @@ jQuery(function($) {
         })
     });
 
-
-
     /* Typewriter
     ============================================== */
-    $('#typewriter').typewriter({
-        prefix: "Idea homes provides ",
-        text: ["best clients", "best stellar service", "simple question", "home valutation"],
-        typeDelay: 90,
-        waitingTime: 1500,
-        blinkSpeed: 200
-    });
-
+    var typeWriterElement = document.getElementById('typewriter');
+    var textArray = ["best clients", "best stellar service", "simple question", "home valutation"];
+    function delWriter(text, i, cb) {
+        if (i >= 0 ) {
+            typeWriterElement.innerHTML = text.substring(0, i--);
+            var rndBack = 10 + Math.random() * 100;
+            setTimeout(function() {
+                delWriter(text, i, cb);
+            },rndBack); 
+        } else if (typeof cb == 'function') {
+            setTimeout(cb,1000);
+        }
+    };
+    function typeWriter(text, i, cb) {
+        if ( i < text.length+1 ) {
+            typeWriterElement.innerHTML = text.substring(0, i++);
+            var rndTyping = 250 - Math.random() * 100;
+            setTimeout( function () { 
+                typeWriter(text, i++, cb)
+            },rndTyping);
+        } else if (i === text.length+1) {
+            setTimeout( function () {
+                delWriter(text, i, cb)
+            },1000);
+        }
+    };
+    function StartWriter(i) {
+        if (typeof textArray[i] == "undefined") {
+            setTimeout( function () {
+                StartWriter(0)
+            },1000);
+        } else if(i < textArray[i].length+1) {
+            typeWriter(textArray[i], 0, function () {
+                StartWriter(i+1);
+            });
+        }  
+    };
+    setTimeout( function () {
+        StartWriter(0);
+    },1000);
 
     // ------- PARALLAX  -------
     $(".parallaxie").parallaxie({
         speed: 0.6,
         offset: 0,
     });
-
-
     
 });
-
-
 
 /* Timeline
 ============================================== */
@@ -637,14 +715,13 @@ $(function() {
     });
 });
 
-
 /* Color Pickers
 ============================================== */
 (function() {
-    $('<div class="color-picker"><a href="#" class="handle"><i class="fa fa-cog fa-spin"></i></a><div class="settings-header"><h3>Setting panel</h3></div><div class="section"><h4 class="color">Normal color schemes:</h4><div class="colors"><a href="#" class="color-1" ></a><a href="#" class="color-2" ></a><a href="#" class="color-3" ></a><a href="#" class="color-4" ></a><a href="#" class="color-5" ></a><a href="#" class="color-6" ></a><a href="#" class="color-7" ></a><a href="#" class="color-8" ></a><a href="#" class="color-9" ></a><a href="#" class="color-10" ></a></div></div></div>').appendTo($('body'));
+    $('<div class="color-picker"><a href="#" class="handle"><i class="fa fa-cog fa-spin"></i></a><div class="settings-header"><h3>Setting panel</h3></div><div class="section"><h4 class="color">Normal color schemes:</h4><div class="colors"><a href="#" class="color-red" ></a><a href="#" class="color-2" ></a><a href="#" class="color-3" ></a><a href="#" class="color-4" ></a><a href="#" class="color-5" ></a><a href="#" class="color-6" ></a><a href="#" class="color-7" ></a><a href="#" class="color-8" ></a><a href="#" class="color-9" ></a><a href="#" class="color-10" ></a></div></div></div>').appendTo($('body'));
 })();
-$(".color-1").click(function() {
-    $("#color").attr("href", "css/color/color-1.css");
+$(".color-red").click(function() {
+    $("#color").attr("href", "css/color/color-red.css");
     return false;
 });
 $(".color-2").click(function() {
@@ -687,7 +764,6 @@ $(".color-10").click(function() {
 $('.color-picker').animate({
     left: '-239px'
 });
-
 $('.color-picker a.handle').click(function(e) {
     e.preventDefault();
     var div = $('.color-picker');
@@ -723,7 +799,6 @@ $(function() {
         doneTypingInterval = 500,
         months = parseInt(month),
         typingTimer;
-
     $('#months').keyup(function() {
         month = $(this).val();
         months = parseInt(month);
@@ -733,7 +808,6 @@ $(function() {
             typingTimer = setTimeout(doneTyping, doneTypingInterval);
         }
     });
-
     function doneTyping() {
         $('#years').val(months / 12);
     }
@@ -743,7 +817,6 @@ $(function() {
         doneTypingInterval = 500,
         months = parseInt(month),
         typingTimer;
-
     $('#months').keyup(function() {
         month = $(this).val();
         months = parseInt(month);
@@ -753,7 +826,6 @@ $(function() {
             typingTimer = setTimeout(doneTyping, doneTypingInterval);
         }
     });
-
     function doneTyping() {
         $('#years').val(months / 12);
     }
@@ -763,7 +835,6 @@ $(function() {
         doneTypingInterval = 500,
         years = parseInt(year),
         typingTimer;
-
     $('#years').keyup(function() {
         year = $(this).val();
         myears = parseInt(year);
@@ -773,18 +844,14 @@ $(function() {
             typingTimer = setTimeout(doneTyping, doneTypingInterval);
         }
     });
-
     function doneTyping() {
         $('#months').val(year * 12);
     }
 })
 
-
-
 /* Wow
 ============================================== */
 new WOW().init();
-
 
 /* Date picker
 ============================================== */
