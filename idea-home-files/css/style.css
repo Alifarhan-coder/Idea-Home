@@ -652,6 +652,7 @@ h5 {
 	text-align: center;
 	font-size: 14px;
 	line-height: normal;
+    margin-top: 30px;
 }
 .btn_brd{
     background: #fff;
@@ -736,14 +737,18 @@ a.back-to {
 }
 
 /* Skils Progress Bars*/
-#we_are .row{
-    align-items: center;
-}
 .skills .progress {
     height: 6px;
     background: #e7e7e7;
     border-radius:6px;
     margin-bottom:20px;
+}
+.progress-bar-wrapper li {
+	display: flex;
+	justify-content: space-between;
+}
+.progress-bar-wrapper li p {
+	font-weight: 500;
 }
 .skills .progress .progress-bar {
 	background: var(--id-default-color);
@@ -7253,6 +7258,11 @@ a.close-overlay.hidden {
 .block-menu li a:hover {
   color: #ffffff;
 }
+.block-menu li a.active, .block-menu li a:hover {
+	background-color: #ed2a28;
+	border: 1px solid #ed2a28;
+	border-right-color: #ed2a28;
+}
 #address-text {
     width: 100%;
     color: #fff;
@@ -7472,6 +7482,23 @@ a.close-overlay.hidden {
     height: 2.6em;
     line-height: 2.6em;
     margin: 0 0 1em;
+}
+.planContainer .price p.bestPlanPrice {
+	background: #ed2a28;
+}
+.planContainer .button a.bestPlanButton {
+	background: #ed2a28;
+	border: 2px solid #ed2a28;
+}
+.planContainer .button a.bestPlanButton {
+	color: #fff;
+}
+.planContainer .button a {
+	color: #ed2a28;
+	border: 1px solid #ed2a28;
+}
+.planContainer .button a:hover {
+	background: #ed2a28;
 }
 .planContainer .price p span {
     color: #8394ae;

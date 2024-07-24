@@ -225,9 +225,18 @@ jQuery(function($) {
         itemsDesktopSmall: [979, 4]
     });
     $("#about_single").owlCarousel({
-        autoPlay: true,
-        singleItem: true,
-        navigation: false,
+        autoplay:true,
+        loop:true,
+        margin:30,
+        animateOut: 'fadeOut',
+        nav:false,
+        dots: true,
+        responsiveClass:true,
+        responsive:{
+            0:{
+                items:1
+            },
+        }
     });
     $("#agent-2-slider, #agent-3-slider, #agent-4-slider").owlCarousel({
         autoPlay: 3000,
