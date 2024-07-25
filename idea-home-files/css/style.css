@@ -155,14 +155,11 @@ h5 {
 .bg_light {
     background: #f6f6f6;
 }
-/* .bg_yello {
-    background: #fff;
-} */
 .bg-color-blue {
     background: var(--id-default-color);
 }
 
-
+/** Spacing **/
 .top {
     top: 51.8%;
     width: auto;
@@ -635,7 +632,7 @@ h5 {
 	margin-left: 8px;
 	position: relative;
 	left: 0;
-	top: -2px;
+	top: -1px;
 	vertical-align: middle;
 }
 .link_arrow:hover::after,
@@ -643,7 +640,11 @@ h5 {
     left: 5px;
 	color: var(--id-default-color);
 }
-.white_border, .dark_border, .btn_fill, .btn_brd, .gray-btn {
+.white_border, 
+.dark_border, 
+.btn_fill, 
+.btn_brd, 
+.gray-btn {
 	padding: 15px 40px;
 	text-transform: uppercase;
 	border-radius: 4px;
@@ -671,7 +672,7 @@ h5 {
 .white_border:focus {
     border: 1px solid #fff;
     background: #fff;
-    color:var(--id-default-color);;
+    color:var(--id-default-color);
 }
 .dark_border:hover,
 .dark_border:focus,
@@ -683,6 +684,16 @@ a.back-to:focus,
 }
 .btn_fill {
     background: var(--id-default-color);
+}
+.dark_border:hover,
+.dark_border:focus{
+    border-color: var(--id-default-color);
+}
+.dark_border:hover::after,
+.dark_border:focus::after,
+a.back-to:hover::after,
+a.back-to:focus::after{
+    color:#fff;
 }
 .btn_fill:hover,
 .btn_fill:focus,
@@ -744,8 +755,13 @@ a.back-to {
     margin-bottom:20px;
 }
 .progress-bar-wrapper li {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+	margin-bottom: 5px;
 }
 .progress-bar-wrapper li p {
 	font-weight: 500;
@@ -1910,19 +1926,19 @@ nav.navbar.bootsnav.sticked .social-icons {
 .owl-carousel .owl-dots .owl-dot {
     display: inline-block;
 }
-.about_single .owl-dots{
+#about_single .owl-dots{
     position: absolute;
     bottom: 30px;
     left: 0;
     right: 0;
 }
-.about_single.owl-carousel .owl-dots,
+#about_single .owl-dots,
 #property-d-1.owl-carousel .owl-dots,
 #agent-3-slider.owl-carousel .owl-dots {
     padding: 0;
     text-align: center;
 }
-.about_single img{
+#about_single img{
     border-radius:10px;
     width:100%;
 }
@@ -3341,7 +3357,8 @@ nav.navbar.bootsnav.sticked .social-icons {
 }
 .right_box {
 	background: rgba(0,0,0,0.7);
-	padding: 0 20px;
+	padding-left:20px;
+    padding-right:20px;
 }
 .right_box_inner .white_content {
 	padding: 20px 40px;
@@ -4224,6 +4241,9 @@ span.input-group-btn button {
 .page-title a {
     text-transform: capitalize;
 }
+.page-title a:hover{
+    color: var(--id-default-color);
+}
 .page-title span {
     margin: 0 10px;
     position: relative;
@@ -4661,10 +4681,11 @@ span.input-group-btn button {
 }
 .our-mission-box-detail h3 {
     text-transform: uppercase;
-    font-weight: 400;
+    font-weight: 600;
     font-size: 22px;
     padding-bottom: 10px;
     font-style: oblique;
+    color: var(--id-default-color);
 }
 .our-mission-box-detail p{
     line-height:24px;
@@ -4682,9 +4703,10 @@ span.input-group-btn button {
     content: "\f0c8";
     position: absolute;
     left: 0;
-    top: 22px;
+    top: 19px;
     font-family: "FontAwesome";
     font-size: 11px;
+    color: var(--id-default-color);
 }
 #services-page.our-value .heading h2,
 #services-page.our-value .heading p {
@@ -4697,19 +4719,6 @@ span.input-group-btn button {
 #services-page.our-value .services-page-box {
     height: 100%;
     padding: 50px 45px;
-}
-.services-page-box .fa {
-    overflow: hidden;
-    font-size:60px;
-    position: relative;
-    display:block;
-    color:#fff;
-    -webkit-transition: all .7s ease .1s;
-    -o-transition: all .7s ease .1s;
-    transition: all .7s ease .1s;
-}
-.services-page-box:hover .fa{
-    transform: translateY(-15px);
 }
 #services-page.our-value .services-page-box h2 {
     position:relative;
@@ -4730,6 +4739,7 @@ span.input-group-btn button {
 #services-page.our-value .services-page-box:hover h2::after{
     width:100%;
     transition:0.3s;
+    background: var(--id-default-color);
 }
 #services-page{
     background:#1f1f1f;
@@ -4744,6 +4754,14 @@ span.input-group-btn button {
     padding: 70px 45px;
     cursor:pointer;
     transition:0.3s;
+}
+.services-page-box lord-icon {
+	margin: 0 auto;
+	display: block;
+    transition:0.3s;
+}
+.services-page-box:hover lord-icon{
+    transform: translateY(-15px);
 }
 .services-page-box h2{
     font-size:30px;
